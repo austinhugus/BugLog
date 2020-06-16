@@ -79,7 +79,6 @@ export default new Vuex.Store({
       try {
         let res = await api.post("bugs", bugData)
         commit("addToBugs", res.data)
-        dispatch("activeBug", res.data.id)
         router.push({ name: "Bugs", params: { id: res.data._id } })
       } catch (error) {
         console.error(error)

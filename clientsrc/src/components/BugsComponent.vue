@@ -1,27 +1,26 @@
 <template>
     <div class="bugs">
-        <router-link :to="{ name: 'bugInfo', params: {bugId: bug.id}}">
+        <router-link :to="{ name: 'Bugs', params: {bugId: bug.id}}">
             <div class="row">
-
                 <div>
                     <h5>
                         {{bug.title}}
                     </h5>
+                    <div>
+                        <p>
+                            {{bug.creatorEmail}}
+                        </p>
+
+                    </div>
+                    <div>
+                        <p>{{new Date(bug.updatedAt).toLocaleString("en-US")}}</p>
+                    </div>
                 </div>
-                <div>
-                    <h5>
-                        {{bug.creatorEmail}}
-                    </h5>
-                </div>
-                <div>
-                    <h3>{{
-                        new Date(bug.updatedAt).toLocaleString("en-US")    
-                    }}</h3>
-                </div>
+            </div>
         </router-link>
     </div>
 
-    </div>
+
 </template>
 
 
