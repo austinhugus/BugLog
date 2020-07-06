@@ -16,6 +16,13 @@
                             </h3>
                         </div>
                     </div>
+                    <div class="row p-3 ">
+                        <div class="col" v-bind:class='{"closed": bug.closed == false, "open": bug.closed == true}'>
+                            <h3 class="ml-2">
+                                {{ bug.closed }}
+                            </h3>
+                        </div>
+                    </div>
                     <div class="row p-3">
                         <div class="col d-flex justify-content-end">
                             <h3 class="ml-2">{{
@@ -25,13 +32,6 @@
                                     year: "numeric",
                                 })
                                 }}</h3>
-                        </div>
-                    </div>
-                    <div class="row p-3 ">
-                        <div class="col" v-bind:class='{"closed": bug.closed == false, "open": bug.closed == true}'>
-                            <h3 class="ml-2">
-                                {{ bug.closed }}
-                            </h3>
                         </div>
                     </div>
                 </div>
@@ -47,18 +47,32 @@
     import Bug from "@/Pages/Bug.vue"
     export default {
         name: 'Bugs',
-        props: ['bug'],
+        props: ['bugProp'],
         data() {
-            return {}
+            return {
+                newBug: {
+                    title: "",
+                    description: ""
+                }
+            }
         },
         computed: {
             profile() {
                 return this.$store.state.profile
+            },
+            bugs() {
+                return this.$store.state.bugs;
+            },
+            bugId() {
+                return this.$store.state.bug.id
             }
         },
-        methods: {},
-        components: {}
     }
+    methods: { }
+    components: {
+        Bug
+    }
+
 </script>
 
 

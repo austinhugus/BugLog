@@ -20,7 +20,8 @@ export default new Vuex.Store({
     profile: {},
     bugs: [],
     activeBug: {},
-    notes: []
+    notes: [],
+    activeNotes: {},
 
   },
   mutations: {

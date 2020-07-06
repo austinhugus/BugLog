@@ -34,6 +34,7 @@
 <script>
     export default {
         name: 'Bug',
+        props: ["bugProp"],
         data() {
             return {}
         },
